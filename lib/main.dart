@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project_it_dev/features/auth/ui/screens/login/login_page_registration.dart';
+import 'package:test_project_it_dev/features/auth/ui/screens/login/login_page_autorization.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +17,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: LoginPageRegistration());
+        home: LoginPageAutorization());
   }
 }
