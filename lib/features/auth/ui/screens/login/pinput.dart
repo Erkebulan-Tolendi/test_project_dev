@@ -2,30 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
 class PinputExample extends StatefulWidget {
-  final void Function(TextEditingController) onControllerCreated;
+  final void Function(String) onPinEntered;
 
-  const PinputExample({Key? key, required this.onControllerCreated})
-      : super(key: key);
+  const PinputExample({Key? key, required this.onPinEntered}) : super(key: key);
 
   @override
   State<PinputExample> createState() => _PinputExampleState();
 }
 
 class _PinputExampleState extends State<PinputExample> {
-  late final TextEditingController pinController;
-  final focusNode = FocusNode();
+  late final FocusNode focusNode;
   final formKey = GlobalKey<FormState>();
+  String enteredPin = '';
 
   @override
   void initState() {
     super.initState();
-    pinController = TextEditingController();
-    widget.onControllerCreated(pinController);
+    focusNode = FocusNode();
   }
 
   @override
   void dispose() {
-    pinController.dispose();
     focusNode.dispose();
     super.dispose();
   }
@@ -50,26 +47,19 @@ class _PinputExampleState extends State<PinputExample> {
     );
 
     return Pinput(
-      controller: pinController,
       focusNode: focusNode,
       androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsUserConsentApi,
       listenForMultipleSmsOnAndroid: true,
       defaultPinTheme: defaultPinTheme,
       separatorBuilder: (index) => const SizedBox(width: 8),
-      validator: (value) {
-        return value == '2222' ? null : 'Pin is incorrect';
-      },
-      // onClipboardFound: (value) {
-      //   debugPrint('onClipboardFound: $value');
-      //   pinController.setText(value);
-      // },
+      validator: (value) {},
       hapticFeedbackType: HapticFeedbackType.lightImpact,
       onCompleted: (pin) {
-        debugPrint('onCompleted: $pin');
+        setState(() {
+          enteredPin = pin;
+        });
+        widget.onPinEntered(pin);
       },
-      // onChanged: (value) {
-      //   debugPrint('onChanged: $value');
-      // },
       cursor: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

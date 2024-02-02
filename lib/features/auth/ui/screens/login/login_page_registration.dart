@@ -8,7 +8,7 @@ class LoginPageRegistration extends StatefulWidget {
 
 class _LoginPageRegistrationState extends State<LoginPageRegistration> {
   final TextEditingController textController = TextEditingController();
-  String phoneNumber = '';
+  String phonePin = '';
 
   @override
   Widget build(BuildContext context) {
@@ -54,17 +54,14 @@ class _LoginPageRegistrationState extends State<LoginPageRegistration> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 120.0),
                 child: PinputExample(
-                  onControllerCreated: (controller) {
-                    print(controller);
+                  onPinEntered: (pin) {
+                    phonePin = pin;
                   },
                 ),
               ),
               ElevatedButton(
                 onPressed: () {
-                  setState(() {
-                    phoneNumber = textController.text;
-                    print('Phone number: $phoneNumber');
-                  });
+                  print(phonePin);
                 },
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 15.0),
