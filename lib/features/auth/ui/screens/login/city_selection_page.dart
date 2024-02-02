@@ -13,10 +13,10 @@ class _CitySelectionPageState extends State<CitySelectionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Регистрация"),
+        title: const Text("Регистрация"),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -27,10 +27,10 @@ class _CitySelectionPageState extends State<CitySelectionPage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
-              Text(
+              const Text(
                 'Выберите ваш город',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -38,29 +38,56 @@ class _CitySelectionPageState extends State<CitySelectionPage> {
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height: 120),
-              Container(
-                width: 500,
-                child: DropdownButton<String>(
-                  value: _selectedCity,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      _selectedCity = newValue;
-                    });
-                  },
-                  items: _cities.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
+              const SizedBox(height: 120),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 500,
+                    child: DropdownButton<String>(
+                      isExpanded: true,
+                      dropdownColor: Colors.white,
+                      borderRadius: BorderRadius.circular(6),
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      value: _selectedCity,
+                      icon: const RotationTransition(
+                        turns: AlwaysStoppedAnimation(0.25),
+                        child: Icon(Icons.arrow_forward_ios_rounded),
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _selectedCity = newValue;
+                        });
+                      },
+                      underline: Container(
+                        height: 0,
+                      ),
+                      items:
+                          _cities.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          alignment: Alignment.center,
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(height: 160),
+              const SizedBox(height: 160),
               ElevatedButton(
                 onPressed: () {},
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.orange),
+                ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 180.0),
                     child: Row(
@@ -82,15 +109,6 @@ class _CitySelectionPageState extends State<CitySelectionPage> {
                       ],
                     ),
                   ),
-                ),
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.orange),
                 ),
               ),
             ],

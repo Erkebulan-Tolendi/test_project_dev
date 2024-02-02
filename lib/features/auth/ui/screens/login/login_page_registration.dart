@@ -67,14 +67,28 @@ class _LoginPageRegistrationViewState
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 40.0),
-                    child: Text(
-                      "на номер ${widget.phonenumber}",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 15,
-                        color: Colors.grey,
-                      ),
-                      textAlign: TextAlign.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "на номер ",
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 15,
+                            color: Colors.grey,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          widget.phonenumber,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 15,
+                            color: Colors.orange,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
@@ -90,7 +104,7 @@ class _LoginPageRegistrationViewState
                       final pin = textController.text;
                       context.read<PhonePinCubit>().checkPhonePin(pin);
                       Future.delayed(
-                        Duration(seconds: 2),
+                        const Duration(seconds: 1),
                         () {
                           Navigator.push(
                             context,
@@ -111,7 +125,7 @@ class _LoginPageRegistrationViewState
                           MaterialStateProperty.all<Color>(Colors.orange),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15.0),
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 180.0),
                         child: Row(

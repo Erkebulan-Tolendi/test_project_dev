@@ -15,7 +15,7 @@ class LoginPageAutorization extends StatelessWidget {
         builder: (context, isCheckingPhoneNumber) {
           return Scaffold(
             appBar: AppBar(
-              title: Text("Авторизация"),
+              title: const Text("Авторизация"),
               centerTitle: true,
               leading: IconButton(
                 icon: Icon(Icons.arrow_back),
@@ -68,7 +68,7 @@ class LoginPageAutorization extends StatelessWidget {
                             final phoneNumber = textController.text;
                             BlocProvider.of<PhoneNumberCubit>(context)
                                 .checkPhoneNumber(phoneNumber);
-                            Future.delayed(Duration(seconds: 2), () {
+                            Future.delayed(const Duration(seconds: 1), () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
