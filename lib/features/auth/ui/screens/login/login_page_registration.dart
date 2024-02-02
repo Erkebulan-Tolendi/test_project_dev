@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project_it_dev/features/auth/ui/screens/login/mask_text_fild.dart';
+import 'package:test_project_it_dev/features/auth/ui/screens/login/pinput.dart';
 
 class LoginPageRegistration extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _LoginPageRegistrationState extends State<LoginPageRegistration> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 5.0),
+                padding: const EdgeInsets.only(bottom: 15.0),
                 child: Text(
                   "на номер +3445345345",
                   style: TextStyle(
@@ -52,12 +52,11 @@ class _LoginPageRegistrationState extends State<LoginPageRegistration> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15.0, bottom: 170),
-                child: MaskedTextField(
-                  controller: textController,
-                  mask: "+7 (###) ###-##-##",
-                  hintText: "+7 (___) ___-__-__",
-                  keyboardType: TextInputType.phone,
+                padding: const EdgeInsets.only(bottom: 120.0),
+                child: PinputExample(
+                  onControllerCreated: (controller) {
+                    print(controller);
+                  },
                 ),
               ),
               ElevatedButton(
