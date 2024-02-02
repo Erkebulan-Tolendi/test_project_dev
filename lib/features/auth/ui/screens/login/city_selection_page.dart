@@ -27,6 +27,9 @@ class _CitySelectionPageState extends State<CitySelectionPage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
+              SizedBox(
+                height: 80,
+              ),
               Text(
                 'Выберите ваш город',
                 style: TextStyle(
@@ -53,13 +56,13 @@ class _CitySelectionPageState extends State<CitySelectionPage> {
                   }).toList(),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 160),
               ElevatedButton(
                 onPressed: () {},
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 15.0),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 140.0),
+                    padding: const EdgeInsets.only(left: 180.0),
                     child: Row(
                       children: [
                         Text(
@@ -70,7 +73,7 @@ class _CitySelectionPageState extends State<CitySelectionPage> {
                           ),
                         ),
                         const SizedBox(
-                          width: 110,
+                          width: 150,
                         ),
                         const Icon(
                           Icons.arrow_forward_ios_rounded,

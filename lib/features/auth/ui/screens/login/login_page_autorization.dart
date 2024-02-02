@@ -31,7 +31,7 @@ class LoginPageAutorization extends StatelessWidget {
                     child: Column(
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(top: 80.0, bottom: 4.0),
+                          padding: EdgeInsets.only(top: 50.0, bottom: 4.0),
                           child: Text(
                             "Введите номер \n мобильного телефона",
                             style: TextStyle(
@@ -55,8 +55,7 @@ class LoginPageAutorization extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding:
-                              const EdgeInsets.only(top: 15.0, bottom: 170),
+                          padding: const EdgeInsets.only(top: 60.0, bottom: 70),
                           child: MaskedTextField(
                             controller: textController,
                             mask: "+7 (###) ###-##-##",
@@ -93,7 +92,7 @@ class LoginPageAutorization extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 15.0),
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 140.0),
+                              padding: const EdgeInsets.only(left: 180.0),
                               child: Row(
                                 children: [
                                   Text(
@@ -104,7 +103,7 @@ class LoginPageAutorization extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(
-                                    width: 110,
+                                    width: 150,
                                   ),
                                   const Icon(
                                     Icons.arrow_forward_ios_rounded,

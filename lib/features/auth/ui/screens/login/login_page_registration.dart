@@ -54,7 +54,7 @@ class _LoginPageRegistrationViewState
               child: Column(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(top: 80.0, bottom: 4.0),
+                    padding: EdgeInsets.only(top: 50.0, bottom: 4.0),
                     child: Text(
                       "Мы отправили Вам 4 значный \n код введите его в поле",
                       style: TextStyle(
@@ -66,7 +66,7 @@ class _LoginPageRegistrationViewState
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15.0),
+                    padding: const EdgeInsets.only(bottom: 40.0),
                     child: Text(
                       "на номер ${widget.phonenumber}",
                       style: const TextStyle(
@@ -78,7 +78,7 @@ class _LoginPageRegistrationViewState
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 120.0),
+                    padding: const EdgeInsets.only(bottom: 110.0),
                     child: PinputExample(
                       onPinEntered: (pin) {
                         context.read<PhonePinCubit>().checkPhonePin(pin);
@@ -113,7 +113,7 @@ class _LoginPageRegistrationViewState
                     child: Padding(
                       padding: EdgeInsets.symmetric(vertical: 15.0),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 140.0),
+                        padding: const EdgeInsets.only(left: 180.0),
                         child: Row(
                           children: [
                             Text(
@@ -124,7 +124,7 @@ class _LoginPageRegistrationViewState
                               ),
                             ),
                             const SizedBox(
-                              width: 110,
+                              width: 150,
                             ),
                             const Icon(
                               Icons.arrow_forward_ios_rounded,
